@@ -373,7 +373,7 @@
                               "type": "virtual",
                               "name": "signal-T"
                             },
-                            "comparator": "≠"
+                            "comparator": "\u2260"
                           }
                         ],
                         "outputs": [
@@ -450,7 +450,7 @@
                             "second_signal": {
                               "name": "parameter-0"
                             },
-                            "comparator": "≤",
+                            "comparator": "\u2264",
                             "first_signal_networks": {
                               "red": false,
                               "green": true
@@ -1150,7 +1150,7 @@
                               "type": "virtual",
                               "name": "signal-T"
                             },
-                            "comparator": "≠"
+                            "comparator": "\u2260"
                           }
                         ],
                         "outputs": [
@@ -1227,7 +1227,7 @@
                             "second_signal": {
                               "name": "parameter-0"
                             },
-                            "comparator": "≤",
+                            "comparator": "\u2264",
                             "first_signal_networks": {
                               "red": false,
                               "green": true
@@ -1816,7 +1816,7 @@
                             "second_signal": {
                               "name": "parameter-0"
                             },
-                            "comparator": "≤",
+                            "comparator": "\u2264",
                             "first_signal_networks": {
                               "red": true,
                               "green": false
@@ -1902,7 +1902,7 @@
                               "type": "virtual",
                               "name": "signal-T"
                             },
-                            "comparator": "≠"
+                            "comparator": "\u2260"
                           }
                         ],
                         "outputs": [
@@ -2384,7 +2384,7 @@
                             "second_signal": {
                               "name": "parameter-0"
                             },
-                            "comparator": "≤",
+                            "comparator": "\u2264",
                             "first_signal_networks": {
                               "red": true,
                               "green": false
@@ -2470,7 +2470,7 @@
                               "type": "virtual",
                               "name": "signal-T"
                             },
-                            "comparator": "≠"
+                            "comparator": "\u2260"
                           }
                         ],
                         "outputs": [
@@ -3121,7 +3121,7 @@
                           "name": "nuclear-fuel"
                         },
                         "constant": 60,
-                        "comparator": "≥"
+                        "comparator": "\u2265"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",
@@ -3460,7 +3460,7 @@
                           "name": "rocket-fuel"
                         },
                         "constant": 60,
-                        "comparator": "≥"
+                        "comparator": "\u2265"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",
@@ -3799,7 +3799,7 @@
                           "name": "solid-fuel"
                         },
                         "constant": 60,
-                        "comparator": "≥"
+                        "comparator": "\u2265"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",
@@ -4138,7 +4138,7 @@
                           "name": "coal"
                         },
                         "constant": 60,
-                        "comparator": "≥"
+                        "comparator": "\u2265"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",

@@ -1,7 +1,7 @@
 {
-    "blueprint": {
-        "entities": [],
-        "schedules": [
+  "blueprint": {
+    "entities": [],
+    "schedules": [
       {
         "locomotives": [],
         "schedule": {
@@ -10,10 +10,10 @@
               "station": "[TRAIN_NAME] [item=train-stop] Depot"
             }
           ],
-          "group": "[TRAIN_NAME][TRAIN_TYPE] [item=rocket-fuel] DragonTrain",
+          "group": "[TRAIN_NAME][TRAIN_TYPE] DragonTrain",
           "interrupts": [
             {
-              "name": "[TRAIN_NAME] [item=rocket-fuel] Refuel",
+              "name": "[TRAIN_NAME] [virtual-signal=signal-fuel-parameter] Refuel",
               "conditions": [
                 {
                   "type": "fuel_item_count_any",
@@ -214,7 +214,7 @@
     ],
     "stock_connections": [
     ],
-        "item": "blueprint",
-        "version": 562949957746689
-    }
+    "item": "blueprint",
+    "version": 562949957746689
+  }
 }
