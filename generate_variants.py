@@ -2,6 +2,7 @@ import json
 
 from draftsman import utils
 from draftsman.blueprintable import BlueprintBook
+from draftsman.classes.blueprint import Blueprint
 from draftsman.signatures import Icon, SignalID
 
 from generate_trains import create_train_bp
@@ -118,6 +119,8 @@ def generate_variants(bp: str) -> dict:
     with open ("rail_book_bp.txt", "r") as f:
         main_bp_book.blueprints.append(BlueprintBook.from_string(f.read()))
     main_bp_book.blueprints.append(train_bp_book)
+    with open ("global_clock_bp.txt", "r") as f:
+        main_bp_book.blueprints.append(Blueprint.from_string(f.read()))
 
     train_bps = []
     for variant in variants_to_create:
