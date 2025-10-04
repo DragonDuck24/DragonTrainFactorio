@@ -1,0 +1,220 @@
+{
+    "blueprint": {
+        "entities": [],
+        "schedules": [
+      {
+        "locomotives": [],
+        "schedule": {
+          "records": [
+            {
+              "station": "[TRAIN_NAME] [item=train-stop] Depot"
+            }
+          ],
+          "group": "[TRAIN_NAME][TRAIN_TYPE] [item=rocket-fuel] DragonTrain",
+          "interrupts": [
+            {
+              "name": "[TRAIN_NAME] [item=rocket-fuel] Refuel",
+              "conditions": [
+                {
+                  "type": "fuel_item_count_any",
+                  "compare_type": "and",
+                  "condition": {
+                    "first_signal": {
+                      "name": "rocket-fuel"
+                    },
+                    "constant": 4,
+                    "comparator": "≤"
+                  }
+                },
+                {
+                  "type": "fuel_item_count_any",
+                  "compare_type": "and",
+                  "condition": {
+                    "first_signal": {
+                      "name": "nuclear-fuel"
+                    },
+                    "constant": 0,
+                    "comparator": "≤"
+                  }
+                },
+                {
+                  "type": "fuel_item_count_any",
+                  "compare_type": "and",
+                  "condition": {
+                    "first_signal": {
+                      "name": "solid-fuel"
+                    },
+                    "constant": 20,
+                    "comparator": "≤"
+                  }
+                },
+                {
+                  "type": "fuel_item_count_any",
+                  "compare_type": "and",
+                  "condition": {
+                    "first_signal": {
+                      "name": "coal"
+                    },
+                    "constant": 50,
+                    "comparator": "≤"
+                  }
+                },
+                {
+                  "type": "specific_destination_not_full",
+                  "compare_type": "and",
+                  "station": "[TRAIN_NAME] [virtual-signal=signal-fuel-parameter] Refueler"
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[TRAIN_NAME] [virtual-signal=signal-fuel-parameter] Refueler",
+                  "wait_conditions": [
+                    {
+                      "type": "fuel_item_count_all",
+                      "compare_type": "and",
+                      "condition": {
+                        "first_signal": {
+                          "name": "rocket-fuel"
+                        },
+                        "constant": 60,
+                        "comparator": "≥"
+                      }
+                    },
+                    {
+                      "type": "fuel_item_count_all",
+                      "compare_type": "or",
+                      "condition": {
+                        "first_signal": {
+                          "name": "nuclear-fuel"
+                        },
+                        "constant": 3,
+                        "comparator": "≥"
+                      }
+                    },
+                    {
+                      "type": "fuel_item_count_all",
+                      "compare_type": "or",
+                      "condition": {
+                        "first_signal": {
+                          "name": "solid-fuel"
+                        },
+                        "constant": 150,
+                        "comparator": "≥"
+                      }
+                    },
+                    {
+                      "type": "fuel_item_count_all",
+                      "compare_type": "or",
+                      "condition": {
+                        "first_signal": {
+                          "name": "coal"
+                        },
+                        "constant": 150,
+                        "comparator": "≥"
+                      }
+                    },
+                    {
+                      "type": "inactivity",
+                      "compare_type": "or",
+                      "ticks": 300
+                    }
+                  ]
+                }
+              ],
+              "inside_interrupt": true
+            },
+            {
+              "name": "[TRAIN_NAME][TRAIN_TYPE] [virtual-signal=signal-signal-parameter] Generic Transport",
+              "conditions": [
+                {
+                  "type": "circuit",
+                  "compare_type": "and",
+                  "condition": {
+                    "first_signal": {
+                      "type": "virtual",
+                      "name": "signal-signal-parameter"
+                    },
+                    "constant": 0,
+                    "comparator": ">"
+                  }
+                },
+                {
+                  "type": "empty",
+                  "compare_type": "and"
+                },
+                {
+                  "type": "specific_destination_not_full",
+                  "compare_type": "and",
+                  "station": "[TRAIN_NAME][TRAIN_TYPE] [virtual-signal=signal-signal-parameter] Provider"
+                },
+                {
+                  "type": "specific_destination_not_full",
+                  "compare_type": "and",
+                  "station": "[TRAIN_NAME][TRAIN_TYPE] [virtual-signal=signal-signal-parameter] Requester"
+                },
+                {
+                  "type": "circuit",
+                  "compare_type": "and",
+                  "condition": {
+                    "first_signal": {
+                      "type": "virtual",
+                      "name": "signal-check"
+                    },
+                    "constant": 1,
+                    "comparator": "="
+                  }
+                }
+              ],
+              "targets": [
+                {
+                  "station": "[TRAIN_NAME][TRAIN_TYPE] [virtual-signal=signal-signal-parameter] Provider",
+                  "wait_conditions": [
+                    {
+                      "type": "full",
+                      "compare_type": "and"
+                    }
+                  ]
+                },
+                {
+                  "station": "[TRAIN_NAME][TRAIN_TYPE] [virtual-signal=signal-signal-parameter] Requester",
+                  "wait_conditions": [
+                    {
+                      "type": "empty",
+                      "compare_type": "and"
+                    },
+                    {
+                      "type": "circuit",
+                      "compare_type": "and",
+                      "condition": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-check"
+                        },
+                        "constant": 1,
+                        "comparator": "≥"
+                      }
+                    },
+                    {
+                      "type": "empty",
+                      "compare_type": "or"
+                    },
+                    {
+                      "type": "inactivity",
+                      "compare_type": "and",
+                      "ticks": 300
+                    }
+                  ]
+                }
+              ],
+              "inside_interrupt": false
+            }
+          ]
+        }
+      }
+    ],
+    "stock_connections": [
+    ],
+        "item": "blueprint",
+        "version": 562949957746689
+    }
+}
