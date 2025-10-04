@@ -29,7 +29,8 @@ def switch_blueprint(bp: dict):
             for i in range(len(bp["blueprint_book"]["blueprints"])):
                 switch_blueprint(bp["blueprint_book"]["blueprints"][i])
         elif key == "blueprint":
-            switch_wires(bp["blueprint"]["wires"])
+            if bp["blueprint"].keys().__contains__("wires"):
+                switch_wires(bp["blueprint"]["wires"])
             for e in bp["blueprint"]["entities"]:
                 if e["name"] == "arithmetic-combinator":
                     switch_conditions(e["control_behavior"]["arithmetic_conditions"])
@@ -131,7 +132,6 @@ if __name__ == "__main__":
         # read blueprint string or text file containing it
         with open(args.input, "r") as f:
             bp = utils.string_to_JSON(f.read())
-            print(bp)
 
         switch_blueprint(bp)
         swap_colors_in_description(bp)
