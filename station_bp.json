@@ -33,8 +33,8 @@
                     "entity_number": 1,
                     "name": "straight-rail",
                     "position": {
-                      "x": -243,
-                      "y": 35
+                      "x": -309,
+                      "y": 161
                     },
                     "direction": 4
                   },
@@ -42,8 +42,8 @@
                     "entity_number": 2,
                     "name": "straight-rail",
                     "position": {
-                      "x": -241,
-                      "y": 35
+                      "x": -307,
+                      "y": 161
                     },
                     "direction": 4
                   },
@@ -51,8 +51,8 @@
                     "entity_number": 3,
                     "name": "straight-rail",
                     "position": {
-                      "x": -239,
-                      "y": 35
+                      "x": -305,
+                      "y": 161
                     },
                     "direction": 4
                   },
@@ -60,17 +60,43 @@
                     "entity_number": 4,
                     "name": "straight-rail",
                     "position": {
-                      "x": -237,
-                      "y": 35
+                      "x": -303,
+                      "y": 161
                     },
                     "direction": 4
                   },
                   {
                     "entity_number": 5,
+                    "name": "straight-rail",
+                    "position": {
+                      "x": -301,
+                      "y": 161
+                    },
+                    "direction": 4
+                  },
+                  {
+                    "entity_number": 6,
+                    "name": "rail-signal",
+                    "position": {
+                      "x": -309.5,
+                      "y": 162.5
+                    },
+                    "direction": 12
+                  },
+                  {
+                    "entity_number": 7,
+                    "name": "medium-electric-pole",
+                    "position": {
+                      "x": -309.5,
+                      "y": 163.5
+                    }
+                  },
+                  {
+                    "entity_number": 8,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -242.5,
-                      "y": 37
+                      "x": -308.5,
+                      "y": 163
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -88,28 +114,33 @@
                     "player_description": "Negates storage and adds to request"
                   },
                   {
-                    "entity_number": 6,
-                    "name": "medium-electric-pole",
-                    "position": {
-                      "x": -243.5,
-                      "y": 37.5
-                    }
-                  },
-                  {
-                    "entity_number": 7,
-                    "name": "rail-signal",
-                    "position": {
-                      "x": -243.5,
-                      "y": 36.5
-                    },
-                    "direction": 12
-                  },
-                  {
-                    "entity_number": 8,
+                    "entity_number": 9,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -240.5,
-                      "y": 37
+                      "x": -307.5,
+                      "y": 163
+                    },
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-I"
+                        },
+                        "second_constant": 1,
+                        "operation": "-",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Adds (train load - 1) to round up requests"
+                  },
+                  {
+                    "entity_number": 10,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -306.5,
+                      "y": 163
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -130,41 +161,19 @@
                     "player_description": "Counts train loads required to fulfill request."
                   },
                   {
-                    "entity_number": 9,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -241.5,
-                      "y": 37
-                    },
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-I"
-                        },
-                        "second_constant": 1,
-                        "operation": "-",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Adds (train load - 1) to round up requests"
-                  },
-                  {
-                    "entity_number": 10,
+                    "entity_number": 11,
                     "name": "big-electric-pole",
                     "position": {
-                      "x": -239,
-                      "y": 37
+                      "x": -305,
+                      "y": 163
                     }
                   },
                   {
-                    "entity_number": 11,
+                    "entity_number": 12,
                     "name": "train-stop",
                     "position": {
-                      "x": -237,
-                      "y": 37
+                      "x": -303,
+                      "y": 163
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -193,28 +202,11 @@
                     }
                   },
                   {
-                    "entity_number": 12,
-                    "name": "medium-electric-pole",
-                    "position": {
-                      "x": -235.5,
-                      "y": 37.5
-                    }
-                  },
-                  {
                     "entity_number": 13,
-                    "name": "rail-signal",
-                    "position": {
-                      "x": -235.5,
-                      "y": 36.5
-                    },
-                    "direction": 12
-                  },
-                  {
-                    "entity_number": 14,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -234.5,
-                      "y": 37
+                      "x": -300.5,
+                      "y": 163
                     },
                     "control_behavior": {
                       "decider_conditions": {
@@ -240,11 +232,28 @@
                     "player_description": "Memory cell for the station's ID."
                   },
                   {
+                    "entity_number": 14,
+                    "name": "rail-signal",
+                    "position": {
+                      "x": -301.5,
+                      "y": 162.5
+                    },
+                    "direction": 12
+                  },
+                  {
                     "entity_number": 15,
+                    "name": "medium-electric-pole",
+                    "position": {
+                      "x": -301.5,
+                      "y": 163.5
+                    }
+                  },
+                  {
+                    "entity_number": 16,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -233.5,
-                      "y": 37
+                      "x": -299.5,
+                      "y": 163
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -292,11 +301,11 @@
                     "player_description": "Gets the highest station ID on the network (+1 from the constant combinator) to store in the memory cell as its own ID."
                   },
                   {
-                    "entity_number": 16,
+                    "entity_number": 17,
                     "name": "constant-combinator",
                     "position": {
-                      "x": -243.5,
-                      "y": 38.5
+                      "x": -309.5,
+                      "y": 164.5
                     },
                     "control_behavior": {
                       "sections": {
@@ -309,7 +318,7 @@
                                 "name": "parameter-0",
                                 "quality": "normal",
                                 "comparator": "=",
-                                "count": 4189
+                                "count": [DEFAULT_ITEM_REQUEST]
                               },
                               {
                                 "index": 2,
@@ -317,7 +326,7 @@
                                 "name": "signal-I",
                                 "quality": "normal",
                                 "comparator": "=",
-                                "count": 0
+                                "count": 4000
                               },
                               {
                                 "index": 3,
@@ -335,11 +344,11 @@
                     "player_description": "Item = Item and how much to request. You cannot change the item to request here, restamp the BP to do so.\nI = # of the item that can fit in a train load\nL = Max train limit"
                   },
                   {
-                    "entity_number": 17,
+                    "entity_number": 18,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -242,
-                      "y": 38.5
+                      "x": -308,
+                      "y": 164.5
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -358,11 +367,11 @@
                     "player_description": "Converts train limit to parameter for calculations."
                   },
                   {
-                    "entity_number": 18,
+                    "entity_number": 19,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -240,
-                      "y": 38.5
+                      "x": -306,
+                      "y": 164.5
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -373,7 +382,7 @@
                               "type": "virtual",
                               "name": "signal-T"
                             },
-                            "comparator": "\u2260"
+                            "comparator": "≠"
                           }
                         ],
                         "outputs": [
@@ -389,11 +398,55 @@
                     "player_description": "Counteract the decrease in request for on the way trains if a train is at the station, as the train inventory is added to the storage, accounting for this already."
                   },
                   {
-                    "entity_number": 19,
+                    "entity_number": 20,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -236.5,
-                      "y": 39
+                      "x": -304,
+                      "y": 164.5
+                    },
+                    "direction": 12,
+                    "control_behavior": {
+                      "decider_conditions": {
+                        "conditions": [
+                          {
+                            "first_signal": {
+                              "name": "parameter-0"
+                            },
+                            "second_signal": {
+                              "name": "parameter-0"
+                            },
+                            "comparator": "≤",
+                            "first_signal_networks": {
+                              "red": false,
+                              "green": true
+                            },
+                            "second_signal_networks": {
+                              "red": true,
+                              "green": false
+                            }
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "signal": {
+                              "name": "parameter-0"
+                            },
+                            "networks": {
+                              "red": false,
+                              "green": true
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "player_description": "Output the lower of the max train limit and the requested trains."
+                  },
+                  {
+                    "entity_number": 21,
+                    "name": "decider-combinator",
+                    "position": {
+                      "x": -302.5,
+                      "y": 165
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -433,78 +486,11 @@
                     "player_description": "Output the lower of the max train limit and the requested trains."
                   },
                   {
-                    "entity_number": 20,
-                    "name": "decider-combinator",
-                    "position": {
-                      "x": -238,
-                      "y": 38.5
-                    },
-                    "direction": 12,
-                    "control_behavior": {
-                      "decider_conditions": {
-                        "conditions": [
-                          {
-                            "first_signal": {
-                              "name": "parameter-0"
-                            },
-                            "second_signal": {
-                              "name": "parameter-0"
-                            },
-                            "comparator": "\u2264",
-                            "first_signal_networks": {
-                              "red": false,
-                              "green": true
-                            },
-                            "second_signal_networks": {
-                              "red": true,
-                              "green": false
-                            }
-                          }
-                        ],
-                        "outputs": [
-                          {
-                            "signal": {
-                              "name": "parameter-0"
-                            },
-                            "networks": {
-                              "red": false,
-                              "green": true
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "player_description": "Output the lower of the max train limit and the requested trains."
-                  },
-                  {
-                    "entity_number": 21,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -235.5,
-                      "y": 39
-                    },
-                    "direction": 8,
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-C"
-                        },
-                        "second_constant": -1,
-                        "operation": "*",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the provider stations aswell."
-                  },
-                  {
                     "entity_number": 22,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -234.5,
-                      "y": 39
+                      "x": -300.5,
+                      "y": 165
                     },
                     "control_behavior": {
                       "decider_conditions": {
@@ -529,10 +515,33 @@
                   },
                   {
                     "entity_number": 23,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -301.5,
+                      "y": 165
+                    },
+                    "direction": 8,
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-C"
+                        },
+                        "second_constant": -1,
+                        "operation": "*",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the provider stations aswell."
+                  },
+                  {
+                    "entity_number": 24,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -233.5,
-                      "y": 39
+                      "x": -299.5,
+                      "y": 165
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -574,177 +583,189 @@
                 ],
                 "wires": [
                   [
-                    5,
+                    7,
                     1,
-                    11,
+                    8,
                     1
                   ],
                   [
+                    7,
+                    2,
+                    17,
+                    2
+                  ],
+                  [
+                    7,
                     5,
+                    11,
+                    5
+                  ],
+                  [
+                    8,
+                    1,
+                    19,
+                    1
+                  ],
+                  [
+                    8,
+                    4,
+                    9,
+                    2
+                  ],
+                  [
+                    8,
+                    4,
+                    17,
+                    2
+                  ],
+                  [
+                    9,
                     1,
                     18,
                     1
                   ],
                   [
-                    5,
-                    2,
-                    6,
-                    2
-                  ],
-                  [
-                    5,
-                    4,
                     9,
-                    2
-                  ],
-                  [
-                    5,
-                    4,
-                    16,
-                    2
-                  ],
-                  [
-                    6,
                     1,
-                    16,
+                    10,
                     1
                   ],
                   [
-                    6,
-                    5,
-                    10,
-                    5
-                  ],
-                  [
-                    8,
+                    9,
                     2,
                     9,
                     4
                   ],
                   [
-                    8,
+                    9,
+                    4,
+                    10,
+                    2
+                  ],
+                  [
+                    10,
                     4,
                     20,
                     2
                   ],
                   [
-                    9,
-                    2,
-                    9,
-                    4
-                  ],
-                  [
-                    10,
+                    11,
                     1,
                     22,
                     3
                   ],
                   [
-                    10,
+                    11,
                     5,
+                    15,
+                    5
+                  ],
+                  [
                     12,
-                    5
-                  ],
-                  [
-                    11,
-                    2,
-                    21,
-                    2
-                  ],
-                  [
-                    14,
-                    2,
-                    14,
-                    4
-                  ],
-                  [
-                    14,
-                    2,
-                    15,
-                    4
-                  ],
-                  [
-                    15,
                     1,
-                    23,
+                    19,
                     1
                   ],
                   [
-                    15,
+                    12,
                     2,
-                    15,
+                    23,
+                    2
+                  ],
+                  [
+                    13,
+                    2,
+                    13,
                     4
                   ],
                   [
-                    15,
-                    4,
-                    23,
-                    2
+                    13,
+                    2,
+                    16,
+                    4
                   ],
                   [
                     16,
                     1,
-                    17,
+                    24,
                     1
                   ],
                   [
+                    16,
+                    2,
+                    16,
+                    4
+                  ],
+                  [
+                    16,
+                    4,
+                    24,
+                    2
+                  ],
+                  [
                     17,
-                    3,
-                    20,
+                    1,
+                    18,
                     1
                   ],
                   [
                     18,
                     3,
                     20,
-                    3
-                  ],
-                  [
-                    19,
-                    1,
-                    20,
                     1
                   ],
                   [
                     19,
-                    2,
+                    3,
                     20,
+                    3
+                  ],
+                  [
+                    20,
+                    1,
+                    21,
+                    1
+                  ],
+                  [
+                    20,
+                    2,
+                    21,
                     2
                   ],
                   [
-                    19,
-                    3,
                     20,
-                    3
-                  ],
-                  [
-                    19,
                     3,
                     21,
                     3
                   ],
                   [
                     21,
-                    2,
-                    22,
-                    4
-                  ],
-                  [
-                    21,
-                    3,
-                    22,
-                    1
-                  ],
-                  [
-                    22,
                     3,
                     23,
+                    3
+                  ],
+                  [
+                    22,
+                    1,
+                    23,
+                    3
+                  ],
+                  [
+                    22,
+                    3,
+                    24,
                     1
                   ],
                   [
                     22,
                     4,
                     23,
+                    2
+                  ],
+                  [
+                    22,
+                    4,
+                    24,
                     4
                   ]
                 ],
@@ -760,7 +781,7 @@
                   },
                   {
                     "type": "number",
-                    "number": "4189",
+                    "number": "[DEFAULT_ITEM_REQUEST]",
                     "name": "Amount to request"
                   },
                   {
@@ -770,7 +791,7 @@
                   },
                   {
                     "type": "number",
-                    "number": "0",
+                    "number": "4000",
                     "name": "Train load",
                     "formula": "[WAGON_AMOUNT] * p0_s * 40",
                     "dependent": true
@@ -778,7 +799,7 @@
                 ],
                 "item": "blueprint",
                 "label": "Item Requester",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 0
             },
@@ -811,8 +832,8 @@
                     "entity_number": 1,
                     "name": "straight-rail",
                     "position": {
-                      "x": -243,
-                      "y": 43
+                      "x": -309,
+                      "y": 171
                     },
                     "direction": 4
                   },
@@ -820,8 +841,8 @@
                     "entity_number": 2,
                     "name": "straight-rail",
                     "position": {
-                      "x": -241,
-                      "y": 43
+                      "x": -307,
+                      "y": 171
                     },
                     "direction": 4
                   },
@@ -829,8 +850,8 @@
                     "entity_number": 3,
                     "name": "straight-rail",
                     "position": {
-                      "x": -239,
-                      "y": 43
+                      "x": -305,
+                      "y": 171
                     },
                     "direction": 4
                   },
@@ -838,34 +859,26 @@
                     "entity_number": 4,
                     "name": "straight-rail",
                     "position": {
-                      "x": -237,
-                      "y": 43
+                      "x": -303,
+                      "y": 171
                     },
                     "direction": 4
                   },
                   {
                     "entity_number": 5,
-                    "name": "rail-signal",
+                    "name": "straight-rail",
                     "position": {
-                      "x": -243.5,
-                      "y": 44.5
+                      "x": -301,
+                      "y": 171
                     },
-                    "direction": 12
+                    "direction": 4
                   },
                   {
                     "entity_number": 6,
-                    "name": "medium-electric-pole",
-                    "position": {
-                      "x": -243.5,
-                      "y": 45.5
-                    }
-                  },
-                  {
-                    "entity_number": 7,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -242.5,
-                      "y": 45
+                      "x": -308.5,
+                      "y": 173
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -883,33 +896,28 @@
                     "player_description": "Negates storage and adds to request"
                   },
                   {
-                    "entity_number": 8,
-                    "name": "arithmetic-combinator",
+                    "entity_number": 7,
+                    "name": "medium-electric-pole",
                     "position": {
-                      "x": -241.5,
-                      "y": 45
+                      "x": -309.5,
+                      "y": 173.5
+                    }
+                  },
+                  {
+                    "entity_number": 8,
+                    "name": "rail-signal",
+                    "position": {
+                      "x": -309.5,
+                      "y": 172.5
                     },
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-I"
-                        },
-                        "second_constant": 1,
-                        "operation": "-",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Adds (train load - 1) to round up requests"
+                    "direction": 12
                   },
                   {
                     "entity_number": 9,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -240.5,
-                      "y": 45
+                      "x": -306.5,
+                      "y": 173
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -931,18 +939,40 @@
                   },
                   {
                     "entity_number": 10,
-                    "name": "big-electric-pole",
+                    "name": "arithmetic-combinator",
                     "position": {
-                      "x": -239,
-                      "y": 45
-                    }
+                      "x": -307.5,
+                      "y": 173
+                    },
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-I"
+                        },
+                        "second_constant": 1,
+                        "operation": "-",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Adds (train load - 1) to round up requests"
                   },
                   {
                     "entity_number": 11,
+                    "name": "big-electric-pole",
+                    "position": {
+                      "x": -305,
+                      "y": 173
+                    }
+                  },
+                  {
+                    "entity_number": 12,
                     "name": "train-stop",
                     "position": {
-                      "x": -237,
-                      "y": 45
+                      "x": -303,
+                      "y": 173
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -971,11 +1001,28 @@
                     }
                   },
                   {
-                    "entity_number": 12,
+                    "entity_number": 13,
+                    "name": "medium-electric-pole",
+                    "position": {
+                      "x": -301.5,
+                      "y": 173.5
+                    }
+                  },
+                  {
+                    "entity_number": 14,
+                    "name": "rail-signal",
+                    "position": {
+                      "x": -301.5,
+                      "y": 172.5
+                    },
+                    "direction": 12
+                  },
+                  {
+                    "entity_number": 15,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -234.5,
-                      "y": 45
+                      "x": -300.5,
+                      "y": 173
                     },
                     "control_behavior": {
                       "decider_conditions": {
@@ -1001,28 +1048,11 @@
                     "player_description": "Memory cell for the station's ID."
                   },
                   {
-                    "entity_number": 13,
-                    "name": "rail-signal",
-                    "position": {
-                      "x": -235.5,
-                      "y": 44.5
-                    },
-                    "direction": 12
-                  },
-                  {
-                    "entity_number": 14,
-                    "name": "medium-electric-pole",
-                    "position": {
-                      "x": -235.5,
-                      "y": 45.5
-                    }
-                  },
-                  {
-                    "entity_number": 15,
+                    "entity_number": 16,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -233.5,
-                      "y": 45
+                      "x": -299.5,
+                      "y": 173
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -1070,11 +1100,11 @@
                     "player_description": "Gets the highest station ID on the network (+1 from the constant combinator) to store in the memory cell as its own ID."
                   },
                   {
-                    "entity_number": 16,
+                    "entity_number": 17,
                     "name": "constant-combinator",
                     "position": {
-                      "x": -243.5,
-                      "y": 46.5
+                      "x": -309.5,
+                      "y": 174.5
                     },
                     "control_behavior": {
                       "sections": {
@@ -1087,7 +1117,7 @@
                                 "name": "parameter-0",
                                 "quality": "normal",
                                 "comparator": "=",
-                                "count": 49162
+                                "count": [DEFAULT_FLUID_REQUEST]
                               },
                               {
                                 "index": 2,
@@ -1095,7 +1125,7 @@
                                 "name": "signal-I",
                                 "quality": "normal",
                                 "comparator": "=",
-                                "count": 0
+                                "count": 50000
                               },
                               {
                                 "index": 3,
@@ -1112,11 +1142,11 @@
                     }
                   },
                   {
-                    "entity_number": 17,
+                    "entity_number": 18,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -242,
-                      "y": 46.5
+                      "x": -308,
+                      "y": 174.5
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -1135,11 +1165,11 @@
                     "player_description": "Converts train limit to parameter for calculations."
                   },
                   {
-                    "entity_number": 18,
+                    "entity_number": 19,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -240,
-                      "y": 46.5
+                      "x": -306,
+                      "y": 174.5
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -1150,7 +1180,7 @@
                               "type": "virtual",
                               "name": "signal-T"
                             },
-                            "comparator": "\u2260"
+                            "comparator": "≠"
                           }
                         ],
                         "outputs": [
@@ -1166,11 +1196,55 @@
                     "player_description": "Counteract the decrease in request for on the way trains if a train is at the station, as the train inventory is added to the storage, accounting for this already."
                   },
                   {
-                    "entity_number": 19,
+                    "entity_number": 20,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -236.5,
-                      "y": 47
+                      "x": -304,
+                      "y": 174.5
+                    },
+                    "direction": 12,
+                    "control_behavior": {
+                      "decider_conditions": {
+                        "conditions": [
+                          {
+                            "first_signal": {
+                              "name": "parameter-0"
+                            },
+                            "second_signal": {
+                              "name": "parameter-0"
+                            },
+                            "comparator": "≤",
+                            "first_signal_networks": {
+                              "red": false,
+                              "green": true
+                            },
+                            "second_signal_networks": {
+                              "red": true,
+                              "green": false
+                            }
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "signal": {
+                              "name": "parameter-0"
+                            },
+                            "networks": {
+                              "red": false,
+                              "green": true
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "player_description": "Output the lower of the max train limit and the requested trains."
+                  },
+                  {
+                    "entity_number": 21,
+                    "name": "decider-combinator",
+                    "position": {
+                      "x": -302.5,
+                      "y": 175
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -1210,55 +1284,34 @@
                     "player_description": "Output the lower of the max train limit and the requested trains."
                   },
                   {
-                    "entity_number": 20,
-                    "name": "decider-combinator",
+                    "entity_number": 22,
+                    "name": "arithmetic-combinator",
                     "position": {
-                      "x": -238,
-                      "y": 46.5
+                      "x": -301.5,
+                      "y": 175
                     },
-                    "direction": 12,
+                    "direction": 8,
                     "control_behavior": {
-                      "decider_conditions": {
-                        "conditions": [
-                          {
-                            "first_signal": {
-                              "name": "parameter-0"
-                            },
-                            "second_signal": {
-                              "name": "parameter-0"
-                            },
-                            "comparator": "\u2264",
-                            "first_signal_networks": {
-                              "red": false,
-                              "green": true
-                            },
-                            "second_signal_networks": {
-                              "red": true,
-                              "green": false
-                            }
-                          }
-                        ],
-                        "outputs": [
-                          {
-                            "signal": {
-                              "name": "parameter-0"
-                            },
-                            "networks": {
-                              "red": false,
-                              "green": true
-                            }
-                          }
-                        ]
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-C"
+                        },
+                        "second_constant": -1,
+                        "operation": "*",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
                       }
                     },
-                    "player_description": "Output the lower of the max train limit and the requested trains."
+                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the provider stations aswell."
                   },
                   {
-                    "entity_number": 21,
+                    "entity_number": 23,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -234.5,
-                      "y": 47
+                      "x": -300.5,
+                      "y": 175
                     },
                     "control_behavior": {
                       "decider_conditions": {
@@ -1282,34 +1335,11 @@
                     "player_description": "Only request positive trains. Prevents overloading this station from counteracting a request for the same item from another station."
                   },
                   {
-                    "entity_number": 22,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -235.5,
-                      "y": 47
-                    },
-                    "direction": 8,
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-C"
-                        },
-                        "second_constant": -1,
-                        "operation": "*",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the provider stations aswell."
-                  },
-                  {
-                    "entity_number": 23,
+                    "entity_number": 24,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -233.5,
-                      "y": 47
+                      "x": -299.5,
+                      "y": 175
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -1353,56 +1383,50 @@
                   [
                     6,
                     1,
-                    16,
+                    19,
                     1
                   ],
                   [
                     6,
-                    2,
+                    1,
                     7,
+                    1
+                  ],
+                  [
+                    6,
+                    4,
+                    10,
                     2
                   ],
                   [
                     6,
+                    4,
+                    17,
+                    2
+                  ],
+                  [
+                    7,
+                    2,
+                    17,
+                    2
+                  ],
+                  [
+                    7,
                     5,
-                    10,
+                    11,
                     5
                   ],
                   [
-                    7,
-                    1,
-                    11,
-                    1
-                  ],
-                  [
-                    7,
-                    1,
-                    18,
-                    1
-                  ],
-                  [
-                    7,
-                    4,
-                    8,
-                    2
-                  ],
-                  [
-                    7,
-                    4,
-                    16,
-                    2
-                  ],
-                  [
-                    8,
-                    2,
-                    8,
-                    4
-                  ],
-                  [
-                    8,
-                    4,
                     9,
-                    2
+                    1,
+                    10,
+                    1
+                  ],
+                  [
+                    9,
+                    2,
+                    10,
+                    4
                   ],
                   [
                     9,
@@ -1413,40 +1437,40 @@
                   [
                     10,
                     1,
-                    21,
-                    3
+                    18,
+                    1
                   ],
                   [
                     10,
-                    5,
-                    14,
-                    5
+                    2,
+                    10,
+                    4
                   ],
                   [
                     11,
+                    1,
+                    23,
+                    3
+                  ],
+                  [
+                    11,
+                    5,
+                    13,
+                    5
+                  ],
+                  [
+                    12,
+                    1,
+                    19,
+                    1
+                  ],
+                  [
+                    12,
                     2,
                     22,
                     2
                   ],
                   [
-                    12,
-                    2,
-                    12,
-                    4
-                  ],
-                  [
-                    12,
-                    2,
-                    15,
-                    4
-                  ],
-                  [
-                    15,
-                    1,
-                    23,
-                    1
-                  ],
-                  [
                     15,
                     2,
                     15,
@@ -1454,74 +1478,92 @@
                   ],
                   [
                     15,
-                    4,
-                    23,
-                    2
+                    2,
+                    16,
+                    4
                   ],
                   [
                     16,
                     1,
-                    17,
+                    24,
                     1
                   ],
                   [
+                    16,
+                    2,
+                    16,
+                    4
+                  ],
+                  [
+                    16,
+                    4,
+                    24,
+                    2
+                  ],
+                  [
                     17,
-                    3,
-                    20,
+                    1,
+                    18,
                     1
                   ],
                   [
                     18,
                     3,
                     20,
-                    3
-                  ],
-                  [
-                    19,
-                    1,
-                    20,
                     1
                   ],
                   [
                     19,
+                    3,
+                    20,
+                    3
+                  ],
+                  [
+                    20,
+                    1,
+                    21,
+                    1
+                  ],
+                  [
+                    20,
                     2,
-                    20,
+                    21,
                     2
                   ],
                   [
-                    19,
-                    3,
                     20,
+                    3,
+                    21,
                     3
                   ],
                   [
-                    19,
+                    21,
                     3,
                     22,
                     3
                   ],
                   [
-                    21,
-                    1,
                     22,
-                    3
+                    2,
+                    23,
+                    4
                   ],
                   [
-                    21,
+                    22,
                     3,
                     23,
                     1
                   ],
                   [
-                    21,
-                    4,
-                    22,
-                    2
+                    23,
+                    3,
+                    24,
+                    1
                   ],
                   [
-                    21,
-                    4,
                     23,
+                    4,
+                    24,
                     4
                   ]
                 ],
@@ -1537,17 +1579,17 @@
                   },
                   {
                     "type": "number",
-                    "number": "49162",
-                    "name": "Amount to request"
-                  },
-                  {
-                    "type": "number",
                     "number": "2",
                     "name": "Max train limit"
                   },
                   {
                     "type": "number",
-                    "number": "0",
+                    "number": "[DEFAULT_FLUID_REQUEST]",
+                    "name": "Amount to request"
+                  },
+                  {
+                    "type": "number",
+                    "number": "50000",
                     "name": "Train load",
                     "formula": "[WAGON_AMOUNT] * 50000",
                     "dependent": true
@@ -1555,7 +1597,7 @@
                 ],
                 "item": "blueprint",
                 "label": "Fluid Requester",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 1
             }
@@ -1577,7 +1619,7 @@
             }
           ],
           "active_index": 0,
-          "version": 562949957746689
+          "version": 562949957943296
         },
         "index": 0
       },
@@ -1613,8 +1655,8 @@
                     "entity_number": 1,
                     "name": "straight-rail",
                     "position": {
-                      "x": -227,
-                      "y": 35
+                      "x": -325,
+                      "y": 161
                     },
                     "direction": 4
                   },
@@ -1622,8 +1664,8 @@
                     "entity_number": 2,
                     "name": "straight-rail",
                     "position": {
-                      "x": -225,
-                      "y": 35
+                      "x": -323,
+                      "y": 161
                     },
                     "direction": 4
                   },
@@ -1631,8 +1673,8 @@
                     "entity_number": 3,
                     "name": "straight-rail",
                     "position": {
-                      "x": -223,
-                      "y": 35
+                      "x": -321,
+                      "y": 161
                     },
                     "direction": 4
                   },
@@ -1640,17 +1682,34 @@
                     "entity_number": 4,
                     "name": "straight-rail",
                     "position": {
-                      "x": -221,
-                      "y": 35
+                      "x": -319,
+                      "y": 161
                     },
                     "direction": 4
                   },
                   {
                     "entity_number": 5,
+                    "name": "rail-signal",
+                    "position": {
+                      "x": -325.5,
+                      "y": 162.5
+                    },
+                    "direction": 12
+                  },
+                  {
+                    "entity_number": 6,
+                    "name": "medium-electric-pole",
+                    "position": {
+                      "x": -325.5,
+                      "y": 163.5
+                    }
+                  },
+                  {
+                    "entity_number": 7,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -226.5,
-                      "y": 37
+                      "x": -324.5,
+                      "y": 163
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -1671,50 +1730,11 @@
                     "player_description": "Counts train loads able to be fulfilled by this provider."
                   },
                   {
-                    "entity_number": 6,
-                    "name": "medium-electric-pole",
-                    "position": {
-                      "x": -227.5,
-                      "y": 37.5
-                    }
-                  },
-                  {
-                    "entity_number": 7,
-                    "name": "rail-signal",
-                    "position": {
-                      "x": -227.5,
-                      "y": 36.5
-                    },
-                    "direction": 12
-                  },
-                  {
                     "entity_number": 8,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -224.5,
-                      "y": 37
-                    },
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-C"
-                        },
-                        "second_constant": -1,
-                        "operation": "*",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the requester stations aswell."
-                  },
-                  {
-                    "entity_number": 9,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -225.5,
-                      "y": 37
+                      "x": -323.5,
+                      "y": 163
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -1733,19 +1753,41 @@
                     "player_description": "Converts train limit to parameter for calculations."
                   },
                   {
+                    "entity_number": 9,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -322.5,
+                      "y": 163
+                    },
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-C"
+                        },
+                        "second_constant": -1,
+                        "operation": "*",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the requester stations aswell."
+                  },
+                  {
                     "entity_number": 10,
                     "name": "big-electric-pole",
                     "position": {
-                      "x": -223,
-                      "y": 37
+                      "x": -321,
+                      "y": 163
                     }
                   },
                   {
                     "entity_number": 11,
                     "name": "train-stop",
                     "position": {
-                      "x": -221,
-                      "y": 37
+                      "x": -319,
+                      "y": 163
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -1783,27 +1825,27 @@
                   },
                   {
                     "entity_number": 12,
-                    "name": "rail-signal",
+                    "name": "medium-electric-pole",
                     "position": {
-                      "x": -219.5,
-                      "y": 36.5
-                    },
-                    "direction": 12
+                      "x": -317.5,
+                      "y": 163.5
+                    }
                   },
                   {
                     "entity_number": 13,
-                    "name": "medium-electric-pole",
+                    "name": "rail-signal",
                     "position": {
-                      "x": -219.5,
-                      "y": 37.5
-                    }
+                      "x": -317.5,
+                      "y": 162.5
+                    },
+                    "direction": 12
                   },
                   {
                     "entity_number": 14,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -227,
-                      "y": 38.5
+                      "x": -325,
+                      "y": 164.5
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -1816,7 +1858,7 @@
                             "second_signal": {
                               "name": "parameter-0"
                             },
-                            "comparator": "\u2264",
+                            "comparator": "≤",
                             "first_signal_networks": {
                               "red": true,
                               "green": false
@@ -1846,8 +1888,8 @@
                     "entity_number": 15,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -225,
-                      "y": 38.5
+                      "x": -323,
+                      "y": 164.5
                     },
                     "direction": 4,
                     "control_behavior": {
@@ -1890,8 +1932,8 @@
                     "entity_number": 16,
                     "name": "decider-combinator",
                     "position": {
-                      "x": -223,
-                      "y": 38.5
+                      "x": -321,
+                      "y": 164.5
                     },
                     "direction": 12,
                     "control_behavior": {
@@ -1902,7 +1944,7 @@
                               "type": "virtual",
                               "name": "signal-T"
                             },
-                            "comparator": "\u2260"
+                            "comparator": "≠"
                           }
                         ],
                         "outputs": [
@@ -1920,8 +1962,8 @@
                     "entity_number": 17,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -221,
-                      "y": 38.5
+                      "x": -319,
+                      "y": 164.5
                     },
                     "direction": 12,
                     "control_behavior": {
@@ -1941,10 +1983,28 @@
                   },
                   {
                     "entity_number": 18,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -316.5,
+                      "y": 164
+                    },
+                    "direction": 8,
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "name": "parameter-0"
+                        },
+                        "second_constant": -2,
+                        "operation": "*"
+                      }
+                    }
+                  },
+                  {
+                    "entity_number": 19,
                     "name": "constant-combinator",
                     "position": {
-                      "x": -219.5,
-                      "y": 38.5
+                      "x": -317.5,
+                      "y": 164.5
                     },
                     "direction": 12,
                     "control_behavior": {
@@ -1966,7 +2026,7 @@
                                 "name": "signal-I",
                                 "quality": "normal",
                                 "comparator": "=",
-                                "count": 0
+                                "count": 4000
                               },
                               {
                                 "index": 3,
@@ -1982,13 +2042,562 @@
                       }
                     },
                     "player_description": "Item = Item and the minimum amount for the station to have before allowing a train to dispatch. You cannot change the item to request here, restamp the BP to do so.\nI = # of the item that can fit in a train load\nL = Max train limit"
+                  }
+                ],
+                "wires": [
+                  [
+                    6,
+                    1,
+                    7,
+                    1
+                  ],
+                  [
+                    6,
+                    5,
+                    10,
+                    5
+                  ],
+                  [
+                    7,
+                    1,
+                    8,
+                    1
+                  ],
+                  [
+                    7,
+                    2,
+                    11,
+                    2
+                  ],
+                  [
+                    7,
+                    4,
+                    14,
+                    2
+                  ],
+                  [
+                    8,
+                    1,
+                    16,
+                    3
+                  ],
+                  [
+                    8,
+                    3,
+                    15,
+                    1
+                  ],
+                  [
+                    9,
+                    1,
+                    11,
+                    1
+                  ],
+                  [
+                    9,
+                    1,
+                    15,
+                    3
+                  ],
+                  [
+                    9,
+                    3,
+                    10,
+                    1
+                  ],
+                  [
+                    10,
+                    5,
+                    12,
+                    5
+                  ],
+                  [
+                    14,
+                    1,
+                    15,
+                    1
+                  ],
+                  [
+                    14,
+                    2,
+                    15,
+                    2
+                  ],
+                  [
+                    14,
+                    3,
+                    15,
+                    3
+                  ],
+                  [
+                    16,
+                    1,
+                    17,
+                    3
+                  ],
+                  [
+                    16,
+                    3,
+                    19,
+                    1
+                  ],
+                  [
+                    17,
+                    2,
+                    19,
+                    2
+                  ],
+                  [
+                    18,
+                    2,
+                    19,
+                    2
+                  ],
+                  [
+                    18,
+                    3,
+                    19,
+                    1
+                  ]
+                ],
+                "parameters": [
+                  {
+                    "type": "id",
+                    "name": "Item to provide",
+                    "id": "parameter-0",
+                    "quality-condition": {
+                      "quality": "normal",
+                      "comparator": "="
+                    }
+                  },
+                  {
+                    "type": "number",
+                    "number": "1000",
+                    "name": "Min amt to keep"
+                  },
+                  {
+                    "type": "number",
+                    "number": "2",
+                    "name": "Max train limit"
+                  },
+                  {
+                    "type": "number",
+                    "number": "4000",
+                    "name": "Train load",
+                    "formula": "[WAGON_AMOUNT] * p0_s * 40",
+                    "dependent": true
+                  }
+                ],
+                "item": "blueprint",
+                "label": "Item Provider",
+                "version": 562949957943296
+              },
+              "index": 0
+            },
+            {
+              "blueprint": {
+                "description": "Connect storage to red wire on the medium pole\nConnect red wire on big pole to the train network",
+                "icons": [
+                  {
+                    "signal": {
+                      "name": "train-stop"
+                    },
+                    "index": 1
+                  },
+                  {
+                    "signal": {
+                      "type": "virtual",
+                      "name": "signal-F"
+                    },
+                    "index": 2
+                  },
+                  {
+                    "signal": {
+                      "name": "passive-provider-chest"
+                    },
+                    "index": 3
+                  }
+                ],
+                "entities": [
+                  {
+                    "entity_number": 1,
+                    "name": "straight-rail",
+                    "position": {
+                      "x": -325,
+                      "y": 171
+                    },
+                    "direction": 4
+                  },
+                  {
+                    "entity_number": 2,
+                    "name": "straight-rail",
+                    "position": {
+                      "x": -323,
+                      "y": 171
+                    },
+                    "direction": 4
+                  },
+                  {
+                    "entity_number": 3,
+                    "name": "straight-rail",
+                    "position": {
+                      "x": -321,
+                      "y": 171
+                    },
+                    "direction": 4
+                  },
+                  {
+                    "entity_number": 4,
+                    "name": "straight-rail",
+                    "position": {
+                      "x": -319,
+                      "y": 171
+                    },
+                    "direction": 4
+                  },
+                  {
+                    "entity_number": 5,
+                    "name": "rail-signal",
+                    "position": {
+                      "x": -325.5,
+                      "y": 172.5
+                    },
+                    "direction": 12
+                  },
+                  {
+                    "entity_number": 6,
+                    "name": "medium-electric-pole",
+                    "position": {
+                      "x": -325.5,
+                      "y": 173.5
+                    }
+                  },
+                  {
+                    "entity_number": 7,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -324.5,
+                      "y": 173
+                    },
+                    "direction": 8,
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "name": "parameter-0"
+                        },
+                        "second_signal": {
+                          "type": "virtual",
+                          "name": "signal-I"
+                        },
+                        "operation": "/",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Counts train loads able to be fulfilled by this provider."
+                  },
+                  {
+                    "entity_number": 8,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -323.5,
+                      "y": 173
+                    },
+                    "direction": 8,
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-L"
+                        },
+                        "second_constant": 0,
+                        "operation": "+",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Converts train limit to parameter for calculations."
+                  },
+                  {
+                    "entity_number": 9,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -322.5,
+                      "y": 173
+                    },
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-C"
+                        },
+                        "second_constant": -1,
+                        "operation": "*",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the requester stations aswell."
+                  },
+                  {
+                    "entity_number": 10,
+                    "name": "big-electric-pole",
+                    "position": {
+                      "x": -321,
+                      "y": 173
+                    }
+                  },
+                  {
+                    "entity_number": 11,
+                    "name": "train-stop",
+                    "position": {
+                      "x": -319,
+                      "y": 173
+                    },
+                    "direction": 4,
+                    "control_behavior": {
+                      "circuit_condition": {
+                        "constant": -4000,
+                        "comparator": "<"
+                      },
+                      "logistic_condition": {
+                        "constant": -4000,
+                        "comparator": "<"
+                      },
+                      "read_from_train": true,
+                      "read_stopped_train": true,
+                      "train_stopped_signal": {
+                        "type": "virtual",
+                        "name": "signal-T"
+                      },
+                      "set_trains_limit": true,
+                      "trains_limit_signal": {
+                        "name": "parameter-0"
+                      },
+                      "read_trains_count": true,
+                      "trains_count_signal": {
+                        "type": "virtual",
+                        "name": "signal-C"
+                      }
+                    },
+                    "station": "1-2F [item=parameter-0] Provider",
+                    "color": {
+                      "r": 1,
+                      "g": 0,
+                      "b": 0,
+                      "a": 1
+                    }
+                  },
+                  {
+                    "entity_number": 12,
+                    "name": "rail-signal",
+                    "position": {
+                      "x": -317.5,
+                      "y": 172.5
+                    },
+                    "direction": 12
+                  },
+                  {
+                    "entity_number": 13,
+                    "name": "medium-electric-pole",
+                    "position": {
+                      "x": -317.5,
+                      "y": 173.5
+                    }
+                  },
+                  {
+                    "entity_number": 14,
+                    "name": "decider-combinator",
+                    "position": {
+                      "x": -325,
+                      "y": 174.5
+                    },
+                    "direction": 4,
+                    "control_behavior": {
+                      "decider_conditions": {
+                        "conditions": [
+                          {
+                            "first_signal": {
+                              "name": "parameter-0"
+                            },
+                            "second_signal": {
+                              "name": "parameter-0"
+                            },
+                            "comparator": "≤",
+                            "first_signal_networks": {
+                              "red": true,
+                              "green": false
+                            },
+                            "second_signal_networks": {
+                              "red": false,
+                              "green": true
+                            }
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "signal": {
+                              "name": "parameter-0"
+                            },
+                            "networks": {
+                              "red": true,
+                              "green": false
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "player_description": "Output the lower of the max train limit and the trains able to be provided for."
+                  },
+                  {
+                    "entity_number": 15,
+                    "name": "decider-combinator",
+                    "position": {
+                      "x": -323,
+                      "y": 174.5
+                    },
+                    "direction": 4,
+                    "control_behavior": {
+                      "decider_conditions": {
+                        "conditions": [
+                          {
+                            "first_signal": {
+                              "name": "parameter-0"
+                            },
+                            "second_signal": {
+                              "name": "parameter-0"
+                            },
+                            "comparator": ">",
+                            "first_signal_networks": {
+                              "red": true,
+                              "green": false
+                            },
+                            "second_signal_networks": {
+                              "red": false,
+                              "green": true
+                            }
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "signal": {
+                              "name": "parameter-0"
+                            },
+                            "networks": {
+                              "red": false,
+                              "green": true
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "player_description": "Output the lower of the max train limit and the trains able to be provided for."
+                  },
+                  {
+                    "entity_number": 16,
+                    "name": "decider-combinator",
+                    "position": {
+                      "x": -321,
+                      "y": 174.5
+                    },
+                    "direction": 12,
+                    "control_behavior": {
+                      "decider_conditions": {
+                        "conditions": [
+                          {
+                            "first_signal": {
+                              "type": "virtual",
+                              "name": "signal-T"
+                            },
+                            "comparator": "≠"
+                          }
+                        ],
+                        "outputs": [
+                          {
+                            "signal": {
+                              "name": "parameter-0"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    "player_description": "Accounts for the currently stationed train and what it will need to fill. This combines with the output from the train stop to get the items still required to fill the train."
+                  },
+                  {
+                    "entity_number": 17,
+                    "name": "arithmetic-combinator",
+                    "position": {
+                      "x": -319,
+                      "y": 174.5
+                    },
+                    "direction": 12,
+                    "control_behavior": {
+                      "arithmetic_conditions": {
+                        "first_signal": {
+                          "type": "virtual",
+                          "name": "signal-I"
+                        },
+                        "second_constant": -1,
+                        "operation": "*",
+                        "output_signal": {
+                          "name": "parameter-0"
+                        }
+                      }
+                    },
+                    "player_description": "Converts train load for use with the train at the station."
+                  },
+                  {
+                    "entity_number": 18,
+                    "name": "constant-combinator",
+                    "position": {
+                      "x": -317.5,
+                      "y": 174.5
+                    },
+                    "direction": 12,
+                    "control_behavior": {
+                      "sections": {
+                        "sections": [
+                          {
+                            "index": 1,
+                            "filters": [
+                              {
+                                "index": 1,
+                                "name": "parameter-0",
+                                "quality": "normal",
+                                "comparator": "=",
+                                "count": 2000
+                              },
+                              {
+                                "index": 2,
+                                "type": "virtual",
+                                "name": "signal-I",
+                                "quality": "normal",
+                                "comparator": "=",
+                                "count": 50000
+                              },
+                              {
+                                "index": 3,
+                                "type": "virtual",
+                                "name": "signal-L",
+                                "quality": "normal",
+                                "comparator": "=",
+                                "count": 2
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
                   },
                   {
                     "entity_number": 19,
                     "name": "arithmetic-combinator",
                     "position": {
-                      "x": -218.5,
-                      "y": 38
+                      "x": -316.5,
+                      "y": 174
                     },
                     "direction": 8,
                     "control_behavior": {
@@ -2004,28 +2613,10 @@
                 ],
                 "wires": [
                   [
-                    5,
-                    1,
                     6,
-                    1
-                  ],
-                  [
-                    5,
                     1,
-                    9,
+                    7,
                     1
-                  ],
-                  [
-                    5,
-                    2,
-                    11,
-                    2
-                  ],
-                  [
-                    5,
-                    4,
-                    14,
-                    2
                   ],
                   [
                     6,
@@ -2034,33 +2625,51 @@
                     5
                   ],
                   [
-                    8,
+                    7,
                     1,
+                    8,
+                    1
+                  ],
+                  [
+                    7,
+                    2,
                     11,
-                    1
+                    2
+                  ],
+                  [
+                    7,
+                    4,
+                    14,
+                    2
                   ],
                   [
                     8,
-                    1,
-                    15,
-                    3
-                  ],
-                  [
-                    8,
-                    3,
-                    10,
-                    1
-                  ],
-                  [
-                    9,
                     1,
                     16,
                     3
                   ],
                   [
-                    9,
+                    8,
                     3,
                     15,
+                    1
+                  ],
+                  [
+                    9,
+                    1,
+                    11,
+                    1
+                  ],
+                  [
+                    9,
+                    1,
+                    15,
+                    3
+                  ],
+                  [
+                    9,
+                    3,
+                    10,
                     1
                   ],
                   [
@@ -2121,573 +2730,6 @@
                 "parameters": [
                   {
                     "type": "id",
-                    "name": "Item to provide",
-                    "id": "parameter-0",
-                    "quality-condition": {
-                      "quality": "normal",
-                      "comparator": "="
-                    }
-                  },
-                  {
-                    "type": "number",
-                    "number": "1000",
-                    "name": "Min amt to keep"
-                  },
-                  {
-                    "type": "number",
-                    "number": "2",
-                    "name": "Max train limit"
-                  },
-                  {
-                    "type": "number",
-                    "number": "0",
-                    "name": "Train load",
-                    "formula": "[WAGON_AMOUNT] * p0_s * 40",
-                    "dependent": true
-                  }
-                ],
-                "item": "blueprint",
-                "label": "Item Provider",
-                "version": 562949957746689
-              },
-              "index": 0
-            },
-            {
-              "blueprint": {
-                "description": "Connect storage to red wire on the medium pole\nConnect red wire on big pole to the train network",
-                "icons": [
-                  {
-                    "signal": {
-                      "name": "train-stop"
-                    },
-                    "index": 1
-                  },
-                  {
-                    "signal": {
-                      "type": "virtual",
-                      "name": "signal-F"
-                    },
-                    "index": 2
-                  },
-                  {
-                    "signal": {
-                      "name": "passive-provider-chest"
-                    },
-                    "index": 3
-                  }
-                ],
-                "entities": [
-                  {
-                    "entity_number": 1,
-                    "name": "straight-rail",
-                    "position": {
-                      "x": -39,
-                      "y": 25
-                    },
-                    "direction": 4
-                  },
-                  {
-                    "entity_number": 2,
-                    "name": "straight-rail",
-                    "position": {
-                      "x": -37,
-                      "y": 25
-                    },
-                    "direction": 4
-                  },
-                  {
-                    "entity_number": 3,
-                    "name": "straight-rail",
-                    "position": {
-                      "x": -35,
-                      "y": 25
-                    },
-                    "direction": 4
-                  },
-                  {
-                    "entity_number": 4,
-                    "name": "straight-rail",
-                    "position": {
-                      "x": -33,
-                      "y": 25
-                    },
-                    "direction": 4
-                  },
-                  {
-                    "entity_number": 5,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -38.5,
-                      "y": 27
-                    },
-                    "direction": 8,
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "name": "parameter-0"
-                        },
-                        "second_signal": {
-                          "type": "virtual",
-                          "name": "signal-I"
-                        },
-                        "operation": "/",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Counts train loads able to be fulfilled by this provider."
-                  },
-                  {
-                    "entity_number": 6,
-                    "name": "medium-electric-pole",
-                    "position": {
-                      "x": -39.5,
-                      "y": 27.5
-                    }
-                  },
-                  {
-                    "entity_number": 7,
-                    "name": "rail-signal",
-                    "position": {
-                      "x": -39.5,
-                      "y": 26.5
-                    },
-                    "direction": 12
-                  },
-                  {
-                    "entity_number": 8,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -36.5,
-                      "y": 27
-                    },
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-C"
-                        },
-                        "second_constant": -1,
-                        "operation": "*",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Decrease request for every train currently on the way to prevent too many from being dispatched. This is done on the requester stations aswell."
-                  },
-                  {
-                    "entity_number": 9,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -37.5,
-                      "y": 27
-                    },
-                    "direction": 8,
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-L"
-                        },
-                        "second_constant": 0,
-                        "operation": "+",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Converts train limit to parameter for calculations."
-                  },
-                  {
-                    "entity_number": 10,
-                    "name": "big-electric-pole",
-                    "position": {
-                      "x": -35,
-                      "y": 27
-                    }
-                  },
-                  {
-                    "entity_number": 11,
-                    "name": "train-stop",
-                    "position": {
-                      "x": -33,
-                      "y": 27
-                    },
-                    "direction": 4,
-                    "control_behavior": {
-                      "circuit_condition": {
-                        "constant": -4000,
-                        "comparator": "<"
-                      },
-                      "logistic_condition": {
-                        "constant": -4000,
-                        "comparator": "<"
-                      },
-                      "read_from_train": true,
-                      "read_stopped_train": true,
-                      "train_stopped_signal": {
-                        "type": "virtual",
-                        "name": "signal-T"
-                      },
-                      "set_trains_limit": true,
-                      "trains_limit_signal": {
-                        "name": "parameter-0"
-                      },
-                      "read_trains_count": true,
-                      "trains_count_signal": {
-                        "type": "virtual",
-                        "name": "signal-C"
-                      }
-                    },
-                    "station": "[TRAIN_NAME]F [item=parameter-0] Provider",
-                    "color": {
-                      "r": 1,
-                      "g": 0,
-                      "b": 0,
-                      "a": 1
-                    }
-                  },
-                  {
-                    "entity_number": 12,
-                    "name": "medium-electric-pole",
-                    "position": {
-                      "x": -31.5,
-                      "y": 27.5
-                    }
-                  },
-                  {
-                    "entity_number": 13,
-                    "name": "rail-signal",
-                    "position": {
-                      "x": -31.5,
-                      "y": 26.5
-                    },
-                    "direction": 12
-                  },
-                  {
-                    "entity_number": 14,
-                    "name": "decider-combinator",
-                    "position": {
-                      "x": -39,
-                      "y": 28.5
-                    },
-                    "direction": 4,
-                    "control_behavior": {
-                      "decider_conditions": {
-                        "conditions": [
-                          {
-                            "first_signal": {
-                              "name": "parameter-0"
-                            },
-                            "second_signal": {
-                              "name": "parameter-0"
-                            },
-                            "comparator": "\u2264",
-                            "first_signal_networks": {
-                              "red": true,
-                              "green": false
-                            },
-                            "second_signal_networks": {
-                              "red": false,
-                              "green": true
-                            }
-                          }
-                        ],
-                        "outputs": [
-                          {
-                            "signal": {
-                              "name": "parameter-0"
-                            },
-                            "networks": {
-                              "red": true,
-                              "green": false
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "player_description": "Output the lower of the max train limit and the trains able to be provided for."
-                  },
-                  {
-                    "entity_number": 15,
-                    "name": "decider-combinator",
-                    "position": {
-                      "x": -37,
-                      "y": 28.5
-                    },
-                    "direction": 4,
-                    "control_behavior": {
-                      "decider_conditions": {
-                        "conditions": [
-                          {
-                            "first_signal": {
-                              "name": "parameter-0"
-                            },
-                            "second_signal": {
-                              "name": "parameter-0"
-                            },
-                            "comparator": ">",
-                            "first_signal_networks": {
-                              "red": true,
-                              "green": false
-                            },
-                            "second_signal_networks": {
-                              "red": false,
-                              "green": true
-                            }
-                          }
-                        ],
-                        "outputs": [
-                          {
-                            "signal": {
-                              "name": "parameter-0"
-                            },
-                            "networks": {
-                              "red": false,
-                              "green": true
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "player_description": "Output the lower of the max train limit and the trains able to be provided for."
-                  },
-                  {
-                    "entity_number": 16,
-                    "name": "decider-combinator",
-                    "position": {
-                      "x": -35,
-                      "y": 28.5
-                    },
-                    "direction": 12,
-                    "control_behavior": {
-                      "decider_conditions": {
-                        "conditions": [
-                          {
-                            "first_signal": {
-                              "type": "virtual",
-                              "name": "signal-T"
-                            },
-                            "comparator": "\u2260"
-                          }
-                        ],
-                        "outputs": [
-                          {
-                            "signal": {
-                              "name": "parameter-0"
-                            }
-                          }
-                        ]
-                      }
-                    },
-                    "player_description": "Accounts for the currently stationed train and what it will need to fill. This combines with the output from the train stop to get the items still required to fill the train."
-                  },
-                  {
-                    "entity_number": 17,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -33,
-                      "y": 28.5
-                    },
-                    "direction": 12,
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "type": "virtual",
-                          "name": "signal-I"
-                        },
-                        "second_constant": -1,
-                        "operation": "*",
-                        "output_signal": {
-                          "name": "parameter-0"
-                        }
-                      }
-                    },
-                    "player_description": "Converts train load for use with the train at the station."
-                  },
-                  {
-                    "entity_number": 18,
-                    "name": "arithmetic-combinator",
-                    "position": {
-                      "x": -30.5,
-                      "y": 28
-                    },
-                    "direction": 8,
-                    "control_behavior": {
-                      "arithmetic_conditions": {
-                        "first_signal": {
-                          "name": "parameter-0"
-                        },
-                        "second_constant": -2,
-                        "operation": "*"
-                      }
-                    }
-                  },
-                  {
-                    "entity_number": 19,
-                    "name": "constant-combinator",
-                    "position": {
-                      "x": -31.5,
-                      "y": 28.5
-                    },
-                    "direction": 12,
-                    "control_behavior": {
-                      "sections": {
-                        "sections": [
-                          {
-                            "index": 1,
-                            "filters": [
-                              {
-                                "index": 1,
-                                "name": "parameter-0",
-                                "quality": "normal",
-                                "comparator": "=",
-                                "count": 2000
-                              },
-                              {
-                                "index": 2,
-                                "type": "virtual",
-                                "name": "signal-I",
-                                "quality": "normal",
-                                "comparator": "=",
-                                "count": 0
-                              },
-                              {
-                                "index": 3,
-                                "type": "virtual",
-                                "name": "signal-L",
-                                "quality": "normal",
-                                "comparator": "=",
-                                "count": 2
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    }
-                  }
-                ],
-                "wires": [
-                  [
-                    5,
-                    1,
-                    9,
-                    1
-                  ],
-                  [
-                    5,
-                    1,
-                    6,
-                    1
-                  ],
-                  [
-                    5,
-                    2,
-                    11,
-                    2
-                  ],
-                  [
-                    5,
-                    4,
-                    14,
-                    2
-                  ],
-                  [
-                    6,
-                    5,
-                    10,
-                    5
-                  ],
-                  [
-                    8,
-                    1,
-                    11,
-                    1
-                  ],
-                  [
-                    8,
-                    1,
-                    15,
-                    3
-                  ],
-                  [
-                    8,
-                    3,
-                    10,
-                    1
-                  ],
-                  [
-                    9,
-                    1,
-                    16,
-                    3
-                  ],
-                  [
-                    9,
-                    3,
-                    15,
-                    1
-                  ],
-                  [
-                    10,
-                    5,
-                    12,
-                    5
-                  ],
-                  [
-                    14,
-                    1,
-                    15,
-                    1
-                  ],
-                  [
-                    14,
-                    2,
-                    15,
-                    2
-                  ],
-                  [
-                    14,
-                    3,
-                    15,
-                    3
-                  ],
-                  [
-                    16,
-                    1,
-                    17,
-                    3
-                  ],
-                  [
-                    16,
-                    3,
-                    19,
-                    1
-                  ],
-                  [
-                    17,
-                    2,
-                    19,
-                    2
-                  ],
-                  [
-                    18,
-                    2,
-                    19,
-                    2
-                  ],
-                  [
-                    18,
-                    3,
-                    19,
-                    1
-                  ]
-                ],
-                "parameters": [
-                  {
-                    "type": "id",
                     "name": "Fluid to provide",
                     "id": "parameter-0",
                     "quality-condition": {
@@ -2707,7 +2749,7 @@
                   },
                   {
                     "type": "number",
-                    "number": "0",
+                    "number": "50000",
                     "name": "Train load",
                     "formula": "[WAGON_AMOUNT] * 50000",
                     "dependent": true
@@ -2715,7 +2757,7 @@
                 ],
                 "item": "blueprint",
                 "label": "Fluid Provider",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 1
             }
@@ -2737,7 +2779,7 @@
             }
           ],
           "active_index": 1,
-          "version": 562949957746689
+          "version": 562949957943296
         },
         "index": 1
       },
@@ -3013,7 +3055,7 @@
                 ],
                 "item": "blueprint",
                 "label": "[item=train-stop] Depot",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 0
             },
@@ -3121,7 +3163,7 @@
                           "name": "nuclear-fuel"
                         },
                         "constant": 60,
-                        "comparator": "\u2265"
+                        "comparator": "≥"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",
@@ -3352,7 +3394,7 @@
                 ],
                 "item": "blueprint",
                 "label": "[item=nuclear-fuel] Refueler",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 1
             },
@@ -3460,7 +3502,7 @@
                           "name": "rocket-fuel"
                         },
                         "constant": 60,
-                        "comparator": "\u2265"
+                        "comparator": "≥"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",
@@ -3691,7 +3733,7 @@
                 ],
                 "item": "blueprint",
                 "label": "[item=rocket-fuel] Refueler",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 2
             },
@@ -3799,7 +3841,7 @@
                           "name": "solid-fuel"
                         },
                         "constant": 60,
-                        "comparator": "\u2265"
+                        "comparator": "≥"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",
@@ -4030,7 +4072,7 @@
                 ],
                 "item": "blueprint",
                 "label": "[item=solid-fuel] Refueler",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 3
             },
@@ -4138,7 +4180,7 @@
                           "name": "coal"
                         },
                         "constant": 60,
-                        "comparator": "\u2265"
+                        "comparator": "≥"
                       },
                       "train_stopped_signal": {
                         "type": "virtual",
@@ -4369,7 +4411,7 @@
                 ],
                 "item": "blueprint",
                 "label": "[item=coal] Refueler",
-                "version": 562949957746689
+                "version": 562949957943296
               },
               "index": 4
             }
@@ -4385,7 +4427,7 @@
             }
           ],
           "active_index": 1,
-          "version": 562949957746689
+          "version": 562949957943296
         },
         "index": 2
       }
@@ -4401,6 +4443,6 @@
       }
     ],
     "active_index": 0,
-    "version": 562949957746689
+    "version": 562949957943296
   }
 }

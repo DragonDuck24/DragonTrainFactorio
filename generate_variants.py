@@ -61,8 +61,8 @@ variants_to_create = [
 starting_variant = {
     "name": "[TRAIN_NAME]",
     "wagons": "[WAGON_AMOUNT]",
-    "default_item_request": "4189",
-    "default_fluid_request": "49162",
+    "default_item_request": "[DEFAULT_ITEM_REQUEST]",
+    "default_fluid_request": "[DEFAULT_FLUID_REQUEST]",
     "color": "Red",
     "alt_color": "Green",
     "layout": ["locomotive", "wagon"]
@@ -144,16 +144,14 @@ if __name__ == "__main__":
 
 
     with open("station_bp.json", "r") as f:
-        bp = json.load(f)
-
-    string_bp = json.dumps(bp, separators=(",", ":"))
+        bp = f.read()
 
     print("Creating variants with names:")
     for variant in variants_to_create:
         print(variant["name"])
     print("\nFrom station_bp.json")
 
-    generated = generate_variants(string_bp)
+    generated = generate_variants(bp)
 
 
     if args.as_json:
