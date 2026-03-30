@@ -18,4 +18,4 @@ Although my [Factorio Prints blueprint](https://factorioprints.com/view/-OE226mK
 
 
 
-The project uses [factorio-draftsman](https://github.com/redruin1/factorio-draftsman), however due to the nature of the project and encountering issues with it, I had to a lot of manual blueprint editing.
+The project uses [factorio-draftsman](https://github.com/redruin1/factorio-draftsman), however due to the nature of the project and encountering issues with it, I had to do a lot of manual blueprint editing.
