@@ -1,8 +1,9 @@
 import json
 
-from draftsman import utils
+from draftsman import utils, validators
 from draftsman.blueprintable import BlueprintBook
 from draftsman.classes.blueprint import Blueprint
+from draftsman.constants import ValidationMode
 from draftsman.signatures import Icon, SignalID
 
 from generate_trains import create_train_bp
@@ -84,6 +85,7 @@ def generate_variants(bp: str) -> dict:
                                                         .replace(starting_variant["wagons"], variant["wagons"])
                                                         .replace(starting_variant["default_item_request"], variant["default_item_request"])
                                                         .replace(starting_variant["default_fluid_request"], variant["default_fluid_request"])))
+        print(json.dumps(variant_bp.to_dict()))
         variant_bp.icons = variant["icons"]
         first_bp_book.blueprints.append(variant_bp)
         # first_bp_book.blueprints.append(create_train_bp(variant, "cargo-wagon")) # Issues adding interrupts to bps, removing for now
@@ -113,11 +115,10 @@ def generate_variants(bp: str) -> dict:
 
     main_bp_book = BlueprintBook()
     main_bp_book.label = "DragonTrain - Automatic Train Dispatching"
-    main_bp_book.description = "Automatically provide and request items by train, in vanilla!\n\nSee https://factorioprints.com/view/-OE226mKZZTaEnA5TplU for usage instructions\nLast updated Oct 3, 2025"
+    main_bp_book.description = "Automatically provide and request items by train, in vanilla!\n\nSee https://factorioprints.com/view/-OE226mKZZTaEnA5TplU for usage instructions\nLast updated March 30, 2026"
     main_bp_book.icons = [Icon(index=0, signal=SignalID("locomotive")), Icon(index=1, signal=SignalID("passive-provider-chest")), Icon(index=2, signal=SignalID("requester-chest"))]
     main_bp_book.blueprints.append(variant_bp_book)
-    with open ("rail_book_bp.txt", "r") as f:
-        main_bp_book.blueprints.append(BlueprintBook.from_string(f.read()))
+    main_bp_book.blueprints.append(Blueprint()) # temp bp to replace with the rail book
     main_bp_book.blueprints.append(train_bp_book)
     with open ("global_clock_bp.txt", "r") as f:
         main_bp_book.blueprints.append(Blueprint.from_string(f.read()))
@@ -129,7 +130,10 @@ def generate_variants(bp: str) -> dict:
 
 
     main_dict = main_bp_book.to_dict()
-    main_dict["blueprint_book"]["blueprints"][2]["blueprint_book"]["blueprints"] = train_bps
+    with open ("rail_book_bp.txt", "r") as f:
+        main_dict["blueprint_book"]["blueprints"][1] = utils.string_to_JSON(f.read()) # add rail book
+    main_dict["blueprint_book"]["blueprints"][2]["blueprint_book"]["blueprints"] = train_bps # add trains to bp
+
 
     return main_dict
 
